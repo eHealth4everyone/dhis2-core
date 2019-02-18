@@ -108,6 +108,9 @@ public interface AclService
      */
     boolean canDataRead( User user, IdentifiableObject object );
 
+
+    boolean canDataOrMetadataRead(User user, IdentifiableObject object);
+
     /**
      * Can user write to this object (create)
      * <p/>

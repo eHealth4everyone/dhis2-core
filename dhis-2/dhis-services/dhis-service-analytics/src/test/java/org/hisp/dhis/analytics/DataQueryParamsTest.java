@@ -56,10 +56,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.allOf;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.nullValue;
 import static org.hisp.dhis.common.DimensionalObject.*;
 import static org.junit.Assert.*;
 
@@ -629,7 +626,7 @@ public class DataQueryParamsTest
     public void testFinancialYearPeriodResultsInTwoAggregationYears() {
 
         DataQueryParams params = DataQueryParams.newBuilder()
-                .addDimension( new BaseDimensionalObject( DimensionalObject.PERIOD_DIM_ID, DimensionType.PERIOD, Lists.newArrayList( peC ) ) )
+                .addDimension( new BaseDimensionalObject( PERIOD_DIM_ID, DimensionType.PERIOD, Lists.newArrayList( peC ) ) )
                 .withDataPeriodType( PeriodType.getPeriodTypeFromIsoString( "2017" ) )
                 .build();
 

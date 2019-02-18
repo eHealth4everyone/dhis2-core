@@ -29,7 +29,6 @@ package org.hisp.dhis.analytics.data;
  */
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hisp.dhis.common.DimensionalObjectUtils.getList;
 import static org.junit.Assert.*;
 
@@ -39,7 +38,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hisp.dhis.DhisConvenienceTest;
-import org.hisp.dhis.DhisSpringTest;
 import org.hisp.dhis.analytics.AggregationType;
 import org.hisp.dhis.analytics.AnalyticsAggregationType;
 import org.hisp.dhis.analytics.AnalyticsManager;
@@ -54,7 +52,6 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Lars Helge Overland
@@ -66,20 +63,21 @@ public class AnalyticsManagerTest
 
     @RunWith(Parameterized.class)
     public static class Parametrized {
-        private AnalyticsManager analyticsManager;
 
-        @Parameterized.Parameters
-        public static Collection<Object[]> data()
-        {
-            return Arrays.asList( new Object[][] { { "2017April", 115.75D }, { "2017July", 77.5D }, { "2017Oct", 39.25 },
-                    { "2017Nov", 26.5D } } );
-        }
+        private AnalyticsManager analyticsManager;
 
         @Parameterized.Parameter
         public String financialYear;
 
         @Parameterized.Parameter(1)
         public Double weightedAverage;
+        
+        @Parameterized.Parameters
+        public static Collection<Object[]> data()
+        {
+            return Arrays.asList( new Object[][] { { "2017April", 115.75D }, { "2017July", 77.5D }, { "2017Oct", 39.25 },
+                    { "2017Nov", 26.5D } } );
+        }
 
         @Before
         public void setUp()
